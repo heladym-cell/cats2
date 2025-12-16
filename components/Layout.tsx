@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext.tsx';
 import { LogOut, Cat, User as UserIcon, LogIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
 

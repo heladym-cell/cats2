@@ -1,13 +1,13 @@
 import React from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './contexts/AuthContext';
-import { DataProvider } from './contexts/DataContext';
-import { Layout } from './components/Layout';
-import { AdminInit } from './views/AdminInit';
-import { Login } from './views/Login';
-import { Home } from './views/Home';
-import { CategoryView } from './views/CategoryView';
-import { GalleryView } from './views/GalleryView';
+import { AuthProvider, useAuth } from './contexts/AuthContext.tsx';
+import { DataProvider } from './contexts/DataContext.tsx';
+import { Layout } from './components/Layout.tsx';
+import { AdminInit } from './views/AdminInit.tsx';
+import { Login } from './views/Login.tsx';
+import { Home } from './views/Home.tsx';
+import { CategoryView } from './views/CategoryView.tsx';
+import { GalleryView } from './views/GalleryView.tsx';
 
 const AppRoutes: React.FC = () => {
   const { isInitialized } = useAuth();

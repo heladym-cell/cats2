@@ -5,6 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Purrfect Gallery</title>
+    <!-- Tailwind CSS (CDN version for no-build environment) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Babel Standalone for in-browser compilation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
       body { font-family: 'Inter', sans-serif; }
@@ -27,25 +33,32 @@
         background: #a8a8a8;
       }
     </style>
-  <script type="importmap">
+    
+    <!-- Import Map to resolve packages -->
+    <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
+    "react": "https://aistudiocdn.com/react@18.2.0",
+    "react/jsx-runtime": "https://aistudiocdn.com/react@18.2.0/jsx-runtime",
+    "react-dom": "https://aistudiocdn.com/react-dom@18.2.0",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@18.2.0/client",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@6.22.1?deps=react@18.2.0,react-dom@18.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@0.344.0?deps=react@18.2.0",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react/": "https://esm.sh/react@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
-    "vite": "https://esm.sh/vite@^7.3.0",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "express": "https://esm.sh/express@^5.2.1",
     "path": "https://esm.sh/path@^0.12.7",
     "url": "https://esm.sh/url@^0.11.4",
-    "express": "https://esm.sh/express@^5.2.1"
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
-</head>
+  </head>
   <body class="bg-gray-50 text-slate-800 antialiased selection:bg-indigo-100 selection:text-indigo-900">
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+    
+    <!-- Main entry point. Note data-type="module" and explicit .tsx extension -->
+    <script type="text/babel" data-type="module" src="./index.tsx"></script>
   </body>
 </html>

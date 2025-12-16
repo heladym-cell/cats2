@@ -1,12 +1,12 @@
-
 import React, { useState, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { useData } from '../contexts/DataContext';
-import { useAuth } from '../contexts/AuthContext';
-import { UserRole, Gallery } from '../types';
+import { useData } from '../contexts/DataContext.tsx';
+import { useAuth } from '../contexts/AuthContext.tsx';
+import { UserRole, Gallery } from '../types.ts';
 import { Plus, Trash2, ArrowLeft, Image as ImageIcon, Pencil, ImagePlus } from 'lucide-react';
-import { Modal } from '../components/Modal';
-import { ImageCropper } from '../components/ImageCropper';
+import { Modal } from '../components/Modal.tsx';
+import { ImageCropper } from '../components/ImageCropper.tsx';
+import { EmptyState } from '../components/EmptyState.tsx';
 
 export const CategoryView: React.FC = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
@@ -90,7 +90,7 @@ export const CategoryView: React.FC = () => {
           imageSrc={cropImage} 
           onConfirm={handleCropConfirm} 
           onCancel={() => setCropImage(null)}
-          aspectRatio={1.5} // slightly taller for galleries than categories
+          aspectRatio={1.5} 
         />
       )}
 
@@ -115,13 +115,13 @@ export const CategoryView: React.FC = () => {
       </div>
 
       {categoryGalleries.length === 0 ? (
-        <div className="text-center py-20 bg-white rounded-xl border border-dashed border-gray-300">
-           <ImageIcon className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-gray-900">Галерей пока нет</h3>
-          {isAdmin && <p className="text-gray-500">Создайте галерею, чтобы начать загружать фото.</p>}
-        </div>
+         <EmptyState 
+           icon={ImageIcon}
+           title="Галерей пока нет"
+           description={isAdmin ? "Создайте галерею, чтобы начать загружать фото." : "В этой категории пока пусто."}
+         />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-[fadeIn_0.3s_ease-out]">
           {categoryGalleries.map((gal) => (
             <Link 
               key={gal.id} 

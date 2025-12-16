@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import './index.css';
+import App from './App.tsx';
+
+// Removed './index.css' as we are using Tailwind CDN and <style> in HTML for simplicity in no-build env
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

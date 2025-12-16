@@ -1,4 +1,4 @@
-import { MediaItemStorage } from '../types';
+import { MediaItemStorage } from '../types.ts';
 
 const DB_NAME = 'PurrfectGalleryDB';
 const STORE_NAME = 'media';

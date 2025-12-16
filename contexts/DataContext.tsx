@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { Category, Gallery, MediaItem, MediaItemStorage, MediaType } from '../types';
-import { storageService } from '../services/storage';
+import { Category, Gallery, MediaItem, MediaItemStorage, MediaType } from '../types.ts';
+import { storageService } from '../services/storage.ts';
 
 interface DataContextType {
   categories: Category[];

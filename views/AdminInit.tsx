@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext.tsx';
 import { ShieldCheck } from 'lucide-react';
 
 export const AdminInit: React.FC = () => {

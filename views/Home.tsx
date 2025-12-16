@@ -1,11 +1,11 @@
-
 import React, { useState, useRef } from 'react';
-import { useData } from '../contexts/DataContext';
-import { useAuth } from '../contexts/AuthContext';
-import { UserRole, Category } from '../types';
+import { useData } from '../contexts/DataContext.tsx';
+import { useAuth } from '../contexts/AuthContext.tsx';
+import { UserRole, Category } from '../types.ts';
 import { Plus, Trash2, FolderOpen, Cat, Pencil, ImagePlus } from 'lucide-react';
-import { Modal } from '../components/Modal';
-import { ImageCropper } from '../components/ImageCropper';
+import { Modal } from '../components/Modal.tsx';
+import { ImageCropper } from '../components/ImageCropper.tsx';
+import { EmptyState } from '../components/EmptyState.tsx';
 import { Link } from 'react-router-dom';
 
 export const Home: React.FC = () => {
@@ -106,17 +106,13 @@ export const Home: React.FC = () => {
       </div>
 
       {categories.length === 0 ? (
-        <div className="text-center py-20 bg-white rounded-xl border border-dashed border-gray-300">
-          <Cat className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-gray-900">Категорий пока нет</h3>
-          {isAdmin ? (
-            <p className="text-gray-500">Создайте первую категорию, чтобы начать.</p>
-          ) : (
-            <p className="text-gray-500">Попросите администратора создать категорию!</p>
-          )}
-        </div>
+        <EmptyState 
+          icon={Cat}
+          title="Категорий пока нет"
+          description={isAdmin ? "Создайте первую категорию, чтобы начать структурировать галерею." : "Попросите администратора создать категорию!"}
+        />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-[fadeIn_0.3s_ease-out]">
           {categories.map((cat) => (
             <Link 
               key={cat.id} 
